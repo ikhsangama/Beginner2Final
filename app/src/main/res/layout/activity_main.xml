@@ -36,7 +36,7 @@
 
         <CheckBox
             android:id="@+id/Chocolate_id"
-            android:layout_width="wragip_content"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Chocolate"/>
 
