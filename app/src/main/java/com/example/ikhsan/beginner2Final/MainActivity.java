@@ -6,6 +6,7 @@ import android.view.View;
 import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.ikhsan.beginner2.R;
 
@@ -21,16 +22,26 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void Increment_btn(View v){
+        if (jumlah==5){
+            Toast.makeText(this, "full",
+                    Toast.LENGTH_SHORT).show();
+            return;
+        }
         jumlah = ++jumlah;
-        update(jumlah);
+        Update(jumlah);
     }
 
     public void Decrement_btn(View v){
+        if (jumlah==0){
+            Toast.makeText(this, "full",
+                    Toast.LENGTH_SHORT).show();
+            return;
+        }
         jumlah = --jumlah;
-        update(jumlah);
+        Update(jumlah);
     }
 
-    private void update(int j) {
+    private void Update(int j) {
         TextView tv = findViewById(R.id.jumlah_tv);
         tv.setText(""+ j);
     }
