@@ -1,5 +1,7 @@
 package com.example.ikhsan.beginner2Final;
 
+import android.content.Intent;
+import android.net.Uri;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -49,16 +51,27 @@ public class MainActivity extends AppCompatActivity {
     public void Pesan_btn (View v){
         CheckBox WhippedCream = (CheckBox) findViewById(R.id.WhippedCream_id);
         boolean hasWhippedCream = WhippedCream.isChecked();
+
         CheckBox Chocolate = (CheckBox) findViewById(R.id.Chocolate_id);
         boolean hasChocholate = Chocolate.isChecked();
+
         EditText nama = (EditText) findViewById(R.id.Nama_id);
         String n = nama.getText().toString();
+
         String p = "Halo " + n +
                 "\nTambah whipped cream = "+ hasWhippedCream +
                 "\nTambah chocolate = "+ hasChocholate +
                 "\n$"+ hitungHarga(hasWhippedCream,hasChocholate)+
                 "\nTerimakasih";
-        displayMessage(p);
+//        displayMessage(p);
+//    INTENT
+        Intent intent = new Intent(Intent.ACTION_SENDTO);
+        intent.setData(Uri.parse("mailto:"));
+        intent.putExtra(Intent.EXTRA_SUBJECT, "Pesanan untuk "+ n);
+        intent.putExtra(Intent.EXTRA_TEXT, p);
+        if (intent.resolveActivity(getPackageManager()) != null){
+            startActivity(intent);
+        }
     }
 
     private int hitungHarga(boolean hasWhippedCream, boolean hasChocholate) {
