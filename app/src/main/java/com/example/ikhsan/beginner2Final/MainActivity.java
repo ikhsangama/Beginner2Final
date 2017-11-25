@@ -66,7 +66,7 @@ public class MainActivity extends AppCompatActivity {
 //        displayMessage(p);
 //    INTENT
         Intent intent = new Intent(Intent.ACTION_SENDTO);
-        intent.setData(Uri.parse("mailto:"));
+        intent.setData(Uri.parse("mailto: "));
         intent.putExtra(Intent.EXTRA_SUBJECT, "Pesanan untuk "+ n);
         intent.putExtra(Intent.EXTRA_TEXT, p);
         if (intent.resolveActivity(getPackageManager()) != null){
